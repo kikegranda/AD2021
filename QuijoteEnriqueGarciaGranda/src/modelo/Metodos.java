@@ -220,6 +220,9 @@ public class Metodos {
 		File[] contenidoCarpetas = directorio.listFiles();
 		for (File fichero : contenidoCarpetas) {
 			if (fichero.isDirectory()) {
+				for (File file : buscarFicheros(fichero,extension)) {
+					rutasFicheros.add(file);
+				}
 				rutasFicheros = buscarFicheros(fichero, extension);
 			} else if (fichero.getName().endsWith(extension)) {
 				rutasFicheros.add(fichero);
